@@ -1,14 +1,13 @@
 {
   "name": "themattlundberg",
   "private": true,
-  "description": "Personal website and portfolio built with modern web technologies.",
+  "description": "Personal website of Matt Lundberg",
   "version": "0.1.0",
-  "author": "Matt Lundberg <matt@themattlundberg.com>",
   "dependencies": {
     "gatsby": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-manifest": "^5.14.0",
-    "gatsby-plugin-postcss": "^5.25.0",
+    "gatsby-plugin-postcss": "^6.12.0",
     "gatsby-plugin-sharp": "^5.14.0",
     "gatsby-plugin-typescript": "^5.14.0",
     "gatsby-source-filesystem": "^5.14.0",
@@ -18,40 +17,19 @@
     "react-icons": "^5.4.0"
   },
   "devDependencies": {
-    "@testing-library/cypress": "^10.0.2",
-    "@types/cypress": "^0.1.6",
-    "@types/node": "^20.11.0",
+    "@types/node": "^20.10.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "autoprefixer": "^10.4.17",
-    "cypress": "^13.17.0",
-    "postcss": "^8.4.35",
-    "prettier": "^2.8.8",
-    "start-server-and-test": "^2.0.9",
-    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
     "typescript": "^5.3.3"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "cypress run",
-    "test:open": "cypress open",
-    "test:e2e": "start-server-and-test develop http://localhost:8000 test",
-    "test:e2e:ci": "start-server-and-test serve http://localhost:9000 test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "clean": "gatsby clean"
   }
 }
