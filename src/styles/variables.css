@@ -1,0 +1,40 @@
+/* Extended Color Variables */
+:root {
+  --primary: #1a1a1a; /* Dark background */
+  --secondary: #f5f5f5; /* Light text */
+  --accent: #b0e0e6; /* Updated accent color to a lighter techno blue */
+  --background-gradient: linear-gradient(135deg, #1a1a1a, #333);
+  /* Mobile-first media query variables */
+  --mobile: 320px;
+  --tablet: 768px;
+  --laptop: 1024px;
+  --desktop: 1280px;
+  /* Additional UI Colors */
+  --text-color: #ffffff;
+  --text-subtle: #a0a0a0;
+  --border-color: rgba(100, 255, 218, 0.1);
+  --glass-color: rgba(42, 42, 53, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover-color: rgba(0, 0, 0, 0.2);
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+  --transition-timing: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Borders */
+  --border-thin: 1px;
+  --border-normal: 2px;
+  --border-radius-sm: 0.125rem;
+  --border-radius-md: 0.25rem;
+  /* Effects */
+  --blur-sm: 8px;
+  --blur-md: 12px;
+  --blur-lg: 16px;
+  --glow-normal: 0 0 15px;
+} 

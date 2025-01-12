@@ -22,7 +22,7 @@ function Layout({ children }: LayoutProps): JSX.Element {
     <div className="min-h-screen flex flex-col">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <main className="flex-grow container mx-auto px-4 py-8">
-        <div className="glass-card">
+        <div>
           {children}
         </div>
       </main>
