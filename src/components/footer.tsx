@@ -96,16 +96,7 @@ function Footer(): JSX.Element {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>
-              © {new Date().getFullYear()} {site.siteMetadata.title}. Built with
-              {` `}
-              <a 
-                href="https://www.gatsbyjs.com"
-                className="gradient-text hover:neon-text transition-all"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Gatsby
-              </a>
+              © {new Date().getFullYear()} {site.siteMetadata.title}. 
             </p>
           </div>
         </div>

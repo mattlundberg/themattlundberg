@@ -56,7 +56,7 @@ function ContactPage(): JSX.Element {
                 type="text"
                 id="name"
                 required
-                className="w-full glass bg-transparent p-3 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-electric-blue"
+                className="w-full p-3 rounded-lg text-gray-100 border border-[var(--border-color)] bg-[var(--glass-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)]"
               />
             </div>
 
@@ -68,7 +68,7 @@ function ContactPage(): JSX.Element {
                 type="email"
                 id="email"
                 required
-                className="w-full glass bg-transparent p-3 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-electric-blue"
+                className="w-full p-3 rounded-lg text-gray-100 border border-[var(--border-color)] bg-[var(--glass-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)]"
               />
             </div>
 
@@ -80,13 +80,13 @@ function ContactPage(): JSX.Element {
                 id="message"
                 required
                 rows={4}
-                className="w-full glass bg-transparent p-3 rounded-lg text-gray-100 focus:outline-none focus:ring-2 focus:ring-electric-blue"
+                className="w-full p-3 rounded-lg text-gray-100 border border-[var(--border-color)] bg-[var(--glass-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)]"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full glass py-3 rounded-lg text-gray-100 hover:neon-text transition-all"
+              className="w-full btn py-3 rounded-lg"
             >
               Send Message
             </button>

@@ -3,16 +3,7 @@
 @tailwind utilities;
 @import './variables.css';
 
-/* Mobile-first media query variables */
-:root {
-  --mobile: 320px;
-  --tablet: 768px;
-  --laptop: 1024px;
-  --desktop: 1280px;
-}
-
 @layer base {
-  /* Document & Body */
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
@@ -23,242 +14,90 @@
     @apply bg-[var(--primary)] text-[var(--text-color)] font-sans antialiased;
     letter-spacing: -0.02em;
     background: var(--primary);
+    background-image: radial-gradient(circle at center, rgba(0, 246, 255, 0.1) 0%, transparent 70%);
     overscroll-behavior-y: none;
     -webkit-overflow-scrolling: touch;
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
   }
 
-  /* Responsive Typography */
-  h1 {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-6;
-    font-weight: bold;
-    color: var(--accent);
-  }
-
-  h2 {
-    @apply text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3 sm:mb-4;
-    font-weight: bold;
-    color: var(--accent);
-  }
-
-  h3 {
-    @apply text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight mb-2 sm:mb-3;
-    font-weight: bold;
-    color: var(--accent);
-  }
-
-  h4 {
-    @apply text-lg sm:text-xl md:text-2xl font-semibold mb-2;
-    font-weight: bold;
-    color: var(--accent);
-  }
-
-  h5 {
-    @apply text-base sm:text-lg md:text-xl font-medium mb-2;
-    font-weight: bold;
-    color: var(--accent);
-  }
-
-  h6 {
-    @apply text-sm sm:text-base md:text-lg font-medium mb-2;
-    font-weight: bold;
-    color: var(--accent);
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   p {
-    @apply text-sm sm:text-base leading-relaxed mb-4 text-[var(--text-subtle)];
+    @apply text-base sm:text-lg leading-relaxed mb-4 text-[var(--text-subtle)];
   }
 
-  /* Touch-friendly Links */
   a {
-    @apply text-[var(--accent)] transition-colors duration-200;
-    @apply min-h-[44px] min-w-[44px] inline-flex items-center;
-  }
-
-  /* Improved Mobile Form Elements */
-  input, textarea, select {
-    @apply bg-[var(--secondary)] text-[var(--text-color)]
-           border border-[var(--border-color)] rounded-sm
-           px-4 py-3 sm:py-2 outline-none transition-all duration-200
-           text-base;
-    @apply text-[16px];
-    @apply shadow-sm;
-  }
-
-  /* Prevent sticky hover on mobile */
-  @media (hover: hover) {
-    a:hover {
-      @apply text-[var(--accent-dark)];
-    }
-
-    .btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      box-shadow: var(--glow-normal) var(--border-color);
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 var(--space-md) var(--space-xl) var(--shadow-hover-color);
-    }
-
-    .card:hover::before {
-      left: 100%;
-      opacity: 1;
+    @apply text-[var(--accent)] transition-all duration-300;
+    &:hover {
+      @apply opacity-80;
     }
   }
 }
 
 @layer components {
-  /* Responsive Container */
-  .container {
-    @apply w-full mx-auto px-4;
-    max-width: min(100% - 2rem, var(--desktop));
-  }
-
-  /* Responsive Section Spacing */
-  .section {
-    @apply py-12 sm:py-16 md:py-20 lg:py-24;
-  }
-
-  /* Mobile-friendly Button */
-  .btn {
-    @apply inline-flex items-center justify-center;
-    min-height: 44px;
-    padding: var(--space-md) var(--space-xl);
-    border-radius: var(--border-radius-sm);
-    font-size: max(16px, 0.875rem);
-    font-weight: 500;
-    transition: all var(--transition-normal) var(--transition-timing);
-    background: var(--glass-color);
-    backdrop-filter: blur(var(--blur-sm));
-    border: var(--border-thin) solid var(--border-color);
-    @apply active:scale-95 active:opacity-70;
-  }
-
-  /* Responsive Card */
-  .card {
-    border-radius: var(--border-radius-sm);
-    @apply p-4 sm:p-6 md:p-8;
-    backdrop-filter: blur(var(--blur-md));
-    background: var(--glass-color);
-    border: var(--border-thin) solid var(--border-color);
-    box-shadow: 0 var(--space-sm) var(--space-lg) var(--shadow-color);
-    transition: all var(--transition-normal) var(--transition-timing);
-    position: relative;
-    overflow: hidden;
-    @apply active:scale-[0.99] sm:active:scale-100;
-  }
-
-  /* Glassmorphism Card */
   .glass-card {
-    @apply border border-[var(--border-color)] rounded-lg p-6 
-           backdrop-blur-md bg-[var(--glass-color)] transition-all duration-300
-           shadow-lg shadow-black/10;
-    position: relative;
-    overflow: hidden;
+    @apply border border-[var(--border-color)] rounded-xl p-6 
+           backdrop-blur-xl bg-[var(--glass-color)] transition-all duration-300
+           shadow-lg;
+    &:hover {
+      @apply border-[var(--accent)] shadow-xl;
+      box-shadow: 0 0 30px var(--shadow-color);
+    }
+
+    /* Input styling within glass cards */
+    input, textarea, select {
+      @apply w-full bg-transparent border border-[var(--border-color)] 
+             rounded-lg px-4 py-3 mb-4 text-[var(--text-color)]
+             focus:border-[var(--accent)] focus:outline-none
+             transition-all duration-300;
+      &:hover {
+        @apply border-opacity-80 border-[var(--accent)];
+        box-shadow: 0 0 5px var(--shadow-color);
+      }
+      &:focus {
+        box-shadow: 0 0 10px var(--shadow-color);
+      }
+    }
+
+    /* Button styling within glass cards */
+    button, .button {
+      @apply bg-transparent border border-[var(--border-color)]
+             rounded-lg px-6 py-3 text-[var(--text-color)]
+             hover:border-[var(--accent)] hover:shadow-lg
+             transition-all duration-300;
+      &:hover {
+        @apply transform scale-[1.02];
+        box-shadow: 0 0 15px var(--shadow-color);
+        background: linear-gradient(to right, rgba(var(--accent-rgb), 0.1), transparent);
+      }
+      &:active {
+        @apply transform scale-[0.98];
+      }
+    }
   }
 
-  .glass-card:hover {
-    @apply border-[var(--accent)] shadow-xl shadow-black/20;
-  }
-
-  .glass-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent));
-    transition: 0.5s;
-    opacity: 0;
-  }
-
-  .glass-card:hover::before {
-    left: 100%;
-    opacity: 1;
-  }
-}
-
-/* Responsive Grid Layout */
-.grid-layout {
-  @apply grid gap-4 sm:gap-6 md:gap-8;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-}
-
-/* Mobile Navigation Helpers */
-.mobile-menu {
-  @apply fixed inset-0 bg-[var(--primary)] bg-opacity-95 backdrop-blur-lg
-         transform transition-transform duration-300 ease-in-out;
-}
-
-.mobile-menu.hidden {
-  transform: translateX(-100%);
-}
-
-/* Touch-friendly Animations */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full
+           text-black font-medium transition-all duration-300;
+    background: var(--accent-gradient);
+    &:hover {
+      @apply transform scale-105;
+      box-shadow: 0 0 20px var(--shadow-color);
+    }
   }
 }
 
-/* Mobile-optimized Scrollbar */
-@media (max-width: 640px) {
-  ::-webkit-scrollbar {
-    width: var(--space-xs);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 9999px;
-  }
-}
-
-/* Landscape Mode Optimization */
-@media screen and (max-height: 450px) and (orientation: landscape) {
-  .section {
-    @apply py-8;
-  }
-
-  h1 {
-    @apply text-2xl mb-2;
-  }
-
-  .mobile-menu {
-    @apply overflow-y-auto;
-  }
-}
-
-/* Layout and Components */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.button {
-  background-color: var(--accent);
-  color: var(--secondary);
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #e65c54;
-}
-
-/* Effects and Animations */
+/* Animations */
 .fade-in {
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 0.5s ease-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 } 
