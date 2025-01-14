@@ -41,9 +41,9 @@ const IndexPage = () => {
               <h2 className="text-3xl font-bold mb-4">Hey there! I'm Matt!</h2>
             </div>
             <p className="text-lg mb-6">
-              I'm a full-stack engineer passionate about creating elegant solutions with modern web technologies. 
-              Specializing in React, TypeScript, and cloud architecture with a focus on building scalable, 
-              user-centric applications.
+              I'm an AI integration specialist, with a 10 year background in Software Engineering, passionate about helping businesses harness the power of artificial intelligence. 
+              Whether you're looking to implement chatbots, automate workflows, or enhance your applications with AI capabilities, 
+              I'd love to help bring your next project to life.
             </p>
           </div>
         </section>
