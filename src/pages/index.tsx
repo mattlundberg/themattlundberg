@@ -55,15 +55,15 @@ const IndexPage = () => {
             {/* First Service: Text Left, Image Right */}
             <div className="glass-card grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold">AI Integration</h3>
+                <h3 className="text-2xl font-bold">AI Chatbots</h3>
                 <p className="text-[var(--text-subtle)]">
-                  Implementing AI solutions to enhance business operations and create innovative features.
-                  Focused on practical applications that deliver real value.
+                  Implementing intelligent chatbot solutions that provide 24/7 customer support and engagement.
+                  Enhance your business with automated, natural conversations that scale effortlessly.
                 </p>
                 <ul className="list-disc pl-5 text-[var(--text-subtle)] mb-6">
-                  <li>AI-powered automation</li>
-                  <li>Machine learning integration</li>
-                  <li>Smart feature development</li>
+                  <li>24/7 automated support</li>
+                  <li>Natural language processing</li>
+                  <li>Custom knowledge integration</li>
                 </ul>
                 <Link to="/contact" className="btn">Learn More</Link>
               </div>
@@ -88,15 +88,15 @@ const IndexPage = () => {
                 />
               </div>
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold">Web Development</h3>
+                <h3 className="text-2xl font-bold">Cassidy.ai Integration</h3>
                 <p className="text-[var(--text-subtle)]">
-                  Building modern, responsive web applications using cutting-edge technologies.
-                  Focus on performance, scalability, and exceptional user experience.
+                  Enhance your development workflow with Cassidy.ai's intelligent code assistance.
+                  Get real-time suggestions, code reviews, and automated refactoring to boost productivity.
                 </p>
                 <ul className="list-disc pl-5 text-[var(--text-subtle)] mb-6">
-                  <li>React & TypeScript expertise</li>
-                  <li>Cloud architecture</li>
-                  <li>API development</li>
+                  <li>AI-powered code completion</li>
+                  <li>Automated code reviews</li>
+                  <li>Smart refactoring suggestions</li>
                 </ul>
                 <Link to="/contact" className="btn">Learn More</Link>
               </div>
@@ -105,15 +105,16 @@ const IndexPage = () => {
             {/* Third Service: Text Left, Image Right */}
             <div className="glass-card grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold">Software Architecture</h3>
+                <h3 className="text-2xl font-bold">AI Automation Solutions</h3>
                 <p className="text-[var(--text-subtle)]">
-                  Designing robust, scalable software architectures that stand the test of time.
-                  Focus on maintainability and performance.
+                  Transform your workflow with intelligent automation solutions that reduce manual tasks
+                  and streamline business processes. Let AI handle the repetitive work while your team
+                  focuses on strategic initiatives.
                 </p>
                 <ul className="list-disc pl-5 text-[var(--text-subtle)] mb-6">
-                  <li>System design</li>
-                  <li>Performance optimization</li>
-                  <li>Best practices implementation</li>
+                  <li>Workflow automation</li>
+                  <li>Process optimization</li>
+                  <li>Smart task management</li>
                 </ul>
                 <Link to="/contact" className="btn">Learn More</Link>
               </div>
@@ -138,15 +139,16 @@ const IndexPage = () => {
                 />
               </div>
               <div className="space-y-4">
-                <h3 className="text-2xl font-bold">Technical Consulting</h3>
+                <h3 className="text-2xl font-bold">AI Agents Development</h3>
                 <p className="text-[var(--text-subtle)]">
-                  Providing expert guidance on technical decisions and implementation strategies.
-                  Helping teams adopt best practices and modern technologies.
+                  Build powerful AI agents that automate complex tasks and workflows.
+                  From simple automation to advanced reasoning systems, we help create
+                  intelligent agents that drive business value.
                 </p>
                 <ul className="list-disc pl-5 text-[var(--text-subtle)] mb-6">
-                  <li>Technical strategy</li>
-                  <li>Team mentoring</li>
-                  <li>Code quality improvement</li>
+                  <li>Custom AI agent development</li>
+                  <li>Multi-agent systems</li>
+                  <li>Agent optimization & scaling</li>
                 </ul>
                 <Link to="/contact" className="btn">Learn More</Link>
               </div>
