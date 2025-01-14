@@ -16,7 +16,7 @@ const IndexPage = () => {
             AI-powered solutions
           </h1>
           <p className="text-xl text-[var(--text-subtle)] mb-8 max-w-2xl mx-auto">
-            Full-stack developer specializing in modern web technologies and AI integration
+            Full-stack engineer specializing in modern web technologies and AI integration
             <br />
             <em>- creating elegant, scalable solutions!</em>
           </p>
@@ -41,7 +41,7 @@ const IndexPage = () => {
               <h2 className="text-3xl font-bold mb-4">Hey there! I'm Matt!</h2>
             </div>
             <p className="text-lg mb-6">
-              I'm a full-stack developer passionate about creating elegant solutions with modern web technologies. 
+              I'm a full-stack engineer passionate about creating elegant solutions with modern web technologies. 
               Specializing in React, TypeScript, and cloud architecture with a focus on building scalable, 
               user-centric applications.
             </p>

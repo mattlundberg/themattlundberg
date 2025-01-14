@@ -10,11 +10,42 @@
     touch-action: manipulation;
   }
 
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--primary);
+    border-radius: var(--radius-full);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      var(--accent),
+      color-mix(in srgb, var(--accent) 70%, transparent)
+    );
+    border-radius: var(--radius-full);
+    border: 2px solid var(--primary);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--primary);
+  }
+
   body {
     @apply bg-[var(--primary)] text-[var(--text-color)] font-sans antialiased;
     letter-spacing: -0.02em;
     background: var(--primary);
-    background-image: radial-gradient(circle at center, rgba(0, 246, 255, 0.1) 0%, transparent 70%);
+    background-image: radial-gradient(circle at center, rgba(0, 246, 255, 0.1), transparent 70%);
     overscroll-behavior-y: none;
     -webkit-overflow-scrolling: touch;
     font-family: 'Inter', sans-serif;
@@ -47,6 +78,31 @@
     &:hover {
       @apply border-[var(--accent)] shadow-xl;
       box-shadow: 0 0 30px var(--shadow-color);
+    }
+
+    /* Custom scrollbar for glass cards */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--glass-color);
+      border-radius: var(--radius-full);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(
+        to bottom,
+        var(--accent),
+        color-mix(in srgb, var(--accent) 70%, transparent)
+      );
+      border-radius: var(--radius-full);
+      border: 2px solid var(--glass-color);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
     }
 
     /* Input styling within glass cards */
