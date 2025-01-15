@@ -13,7 +13,7 @@ exports.onRenderBody = ({ setHtmlAttributes, setPostBodyComponents }) => {
   // Set HTML language attribute
   setHtmlAttributes({ lang: `en` })
 
-  // Add Chatbase script
+  // Add Chatbase script with custom styling
   setPostBodyComponents([
     React.createElement("script", {
       key: "chatbase-widget",
@@ -41,6 +41,21 @@ exports.onRenderBody = ({ setHtmlAttributes, setPostBodyComponents }) => {
               script.src="https://www.chatbase.co/embed.min.js";
               script.id="5MidPtKrVz97X5SaLoE8E";
               script.domain="www.chatbase.co";
+              script.defer = true;
+              script.onload = function() {
+                // Initialize with custom options
+                window.chatbase('init', {
+                  embedId: '5MidPtKrVz97X5SaLoE8E',
+                  position: 'right',
+                  theme: 'dark',
+                  styles: {
+                    accentColor: 'var(--accent)',
+                    backgroundColor: 'var(--primary)',
+                    textColor: 'var(--text-color)',
+                    buttonColor: 'var(--accent)',
+                  }
+                });
+              };
               document.body.appendChild(script)
             };
             if(document.readyState==="complete"){
