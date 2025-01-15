@@ -147,7 +147,7 @@ function ContactPage(): JSX.Element {
                 Location
               </h2>
               <p className="text-gray-300">
-                Based in Your City, Country
+                Based in Eagle Mountain, Utah, USA
                 <br />
                 Available for remote work worldwide
               </p>

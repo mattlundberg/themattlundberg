@@ -97,5 +97,5 @@ function PortfolioPage(): JSX.Element {
 export default PortfolioPage
 
 export function Head(): JSX.Element {
-  return <Seo title="Portfolio" description="View my latest projects and work" />
+  return <Seo title="AI tools" description="A list of AI tools that I will be using" />
 } 

@@ -38,7 +38,7 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="hover:text-[var(--accent)]">Home</Link>
-            <Link to="/portfolio" className="hover:text-[var(--accent)]">Portfolio</Link>
+            <Link to="/tools" className="hover:text-[var(--accent)]">Tools</Link>
             <Link to="/contact" className="hover:text-[var(--accent)]">Contact</Link>
             <button
               onClick={toggleTheme}
@@ -110,7 +110,7 @@ export function Header() {
           <div className="md:hidden mt-4 py-4 bg-[var(--primary)] border border-[var(--border-color)] rounded-lg">
             <div className="flex flex-col space-y-4 px-4">
               <Link to="/" className="hover:text-[var(--accent)]">Home</Link>
-              <Link to="/portfolio" className="hover:text-[var(--accent)]">Portfolio</Link>
+              <Link to="/tools" className="hover:text-[var(--accent)]">Tools</Link>
               <Link to="/contact" className="hover:text-[var(--accent)]">Contact</Link>
             </div>
           </div>

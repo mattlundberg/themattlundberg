@@ -14,7 +14,7 @@ interface SocialLink {
 
 const navigationLinks: FooterLink[] = [
   { name: "Home", url: "/" },
-  { name: "Portfolio", url: "/portfolio" },
+  { name: "Tools", url: "/tools" },
   { name: "Contact", url: "/contact" }
 ]
 
