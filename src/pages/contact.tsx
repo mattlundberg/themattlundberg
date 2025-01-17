@@ -11,12 +11,12 @@ interface SocialLink {
 const socialLinks: SocialLink[] = [
   {
     platform: "GitHub",
-    url: "https://github.com/yourusername",
+    url: "https://github.com/mattlundberg",
     icon: "💻"
   },
   {
     platform: "LinkedIn",
-    url: "https://linkedin.com/in/yourusername",
+    url: "https://www.linkedin.com/in/matthew-lundberg-62304237/",
     icon: "👔"
   }
 ]
@@ -61,13 +61,14 @@ function ContactPage(): JSX.Element {
 
         <div className="grid md:grid-cols-2 gap-8">
           <form 
-            onSubmit={handleSubmit} 
-            className="glass-card space-y-6"
-            name="contact" 
-            method="POST" 
+            name="contact"
+            method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+            className="glass-card space-y-6"
           >
+            {/* These hidden inputs are required for Netlify Forms */}
             <input type="hidden" name="form-name" value="contact" />
             <div hidden>
               <input name="bot-field" />
@@ -80,6 +81,7 @@ function ContactPage(): JSX.Element {
               <input
                 type="text"
                 id="name"
+                name="name"
                 required
                 className="w-full p-3 rounded-lg text-gray-100 border border-[var(--border-color)] bg-[var(--glass-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)]"
               />
@@ -92,6 +94,7 @@ function ContactPage(): JSX.Element {
               <input
                 type="email"
                 id="email"
+                name="email"
                 required
                 className="w-full p-3 rounded-lg text-gray-100 border border-[var(--border-color)] bg-[var(--glass-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)]"
               />
@@ -103,6 +106,7 @@ function ContactPage(): JSX.Element {
               </label>
               <textarea
                 id="message"
+                name="message"
                 required
                 rows={4}
                 className="w-full p-3 rounded-lg text-gray-100 border border-[var(--border-color)] bg-[var(--glass-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)]"
@@ -112,12 +116,17 @@ function ContactPage(): JSX.Element {
             <button
               type="submit"
               className="w-full btn py-3 rounded-lg"
+              disabled={formStatus === "Sending..."}
             >
-              Send Message
+              {formStatus === "Sending..." ? "Sending..." : "Send Message"}
             </button>
 
             {formStatus && (
-              <p className="text-center text-gray-300">{formStatus}</p>
+              <p className={`text-center ${
+                formStatus.includes("Oops") ? "text-red-400" : "text-green-400"
+              }`}>
+                {formStatus}
+              </p>
             )}
           </form>
 
