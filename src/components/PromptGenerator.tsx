@@ -16,6 +16,8 @@ export function PromptGenerator(): JSX.Element {
   const enhancePrompt = async () => {
     if (!userPrompt.trim()) return
 
+    // Clear previous results before starting new request
+    setResult(null)
     setIsLoading(true)
     setError("")
 
