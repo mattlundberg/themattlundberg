@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { PromptGenerator } from "../components"
 
 interface Tool {
   title: string
@@ -24,7 +25,7 @@ const tools: Tool[] = [
   },
   {
     title: "Claude AI",
-    description: "Advanced language model for content generation and analysis",
+    description: "Advanced language model for content generation and analysis", 
     features: ["High Accuracy", "Context Understanding", "Code Generation"],
     imageUrl: "../images/project-placeholder.jpg",
     link: "https://claude.ai",
@@ -36,6 +37,30 @@ const tools: Tool[] = [
     features: ["Code Completion", "AI Pair Programming", "Smart Refactoring"],
     imageUrl: "../images/project-placeholder.jpg",
     link: "https://cursor.sh",
+    category: "Automation"
+  },
+  {
+    title: "Cassidy AI",
+    description: "AI-powered content creation and optimization platform for marketers and writers",
+    features: ["Content Generation", "SEO Optimization", "Brand Voice Customization"],
+    imageUrl: "../images/project-placeholder.jpg",
+    link: "https://app.cassidyai.com/",
+    category: "Content Generation"
+  },
+  {
+    title: "AI Agent",
+    description: "AI-powered analytics and insights platform for data-driven decision making",
+    features: ["Data Analysis", "Predictive Analytics", "Custom Reporting"],
+    imageUrl: "../images/project-placeholder.jpg",
+    link: "https://aiagent.app",
+    category: "Analytics"
+  },
+  {
+    title: "AI Automations",
+    description: "Intelligent AI assistant for automated task management and workflow optimization",
+    features: ["Task Automation", "Workflow Integration", "Smart Scheduling"],
+    imageUrl: "../images/project-placeholder.jpg",
+    link: "https://aiagent.app",
     category: "Automation"
   }
 ]
@@ -82,6 +107,17 @@ function ToolsPage(): JSX.Element {
               </div>
             </a>
           ))}
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold gradient-text mb-4">AI Prompt Generator</h2>
+            <p className="text-gray-400">
+              Need help crafting the perfect prompt? Use our AI-powered prompt generator to enhance your prompts
+              and get better results from AI tools.
+            </p>
+          </div>
+          <PromptGenerator />
         </div>
 
         <div className="text-center">

@@ -69,10 +69,14 @@ const IndexPage = () => {
               </div>
               <div className="md:order-last">
                 <StaticImage
-                  src="../images/ai-integration.svg"
+                  src="../images/chatbot.svg"
                   alt="AI Integration Illustration"
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-auto rounded-lg transition-all duration-300 hover:transform hover:scale-105 hover:filter hover:drop-shadow-[0_0_8px_var(--shadow-color)] hover:fill-[var(--accent)] hover:stroke-[var(--accent)]"
                   placeholder="blurred"
+                  style={{
+                    fill: "blue",
+                    stroke: "blue",
+                  }}
                 />
               </div>
             </div>

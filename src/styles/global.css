@@ -156,4 +156,37 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
-} 
+}
+
+/* SVG styling */
+svg {
+  @apply transition-all duration-300;
+  
+  /* Default fill and stroke colors */
+  fill: var(--text-color);
+  stroke: var(--text-color);
+  
+  /* Hover effects */
+  &:hover {
+    fill: var(--accent);
+    stroke: var(--accent);
+    filter: drop-shadow(0 0 8px var(--shadow-color));
+    @apply transform scale-105;
+  }
+
+  /* Within buttons/interactive elements */
+  button &,
+  .btn &,
+  a & {
+    @apply w-5 h-5 inline-block align-middle;
+    fill: currentColor;
+    stroke: currentColor;
+  }
+
+  /* Decorative SVGs */
+  &.decorative {
+    @apply opacity-50;
+    fill: var(--accent);
+    filter: drop-shadow(0 0 5px var(--shadow-color));
+  }
+}
