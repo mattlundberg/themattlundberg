@@ -49,7 +49,7 @@ export function PromptGenerator(): JSX.Element {
   return (
     <div className="glass-card space-y-6">
       <div className="space-y-2">
-        <h2 className="text-2xl font-bold gradient-text">Prompt Generator</h2>
+        <h2 className="text-2xl font-bold gradient-text">Prompt Helper</h2>
         <p className="text-gray-400">
           Enter your prompt below and I'll help you enhance it for better results.
         </p>

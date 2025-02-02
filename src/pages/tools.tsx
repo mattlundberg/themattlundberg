@@ -111,7 +111,7 @@ function ToolsPage(): JSX.Element {
 
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold gradient-text mb-4">AI Prompt Generator</h2>
+            <h2 className="text-3xl font-bold gradient-text mb-4">AI Prompt Helper</h2>
             <p className="text-gray-400">
               Need help crafting the perfect prompt? Use our AI-powered prompt generator to enhance your prompts
               and get better results from AI tools.
