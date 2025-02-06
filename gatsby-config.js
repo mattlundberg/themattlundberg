@@ -11,7 +11,7 @@
 module.exports = {
   siteMetadata: {
     title: `The Matt Lundberg`,
-    description: `Full-stack engineer passionate about creating elegant solutions with modern web technologies. Specializing in React, TypeScript, and cloud architecture with a focus on building scalable, user-centric applications.`,
+    description: `Full-stack developer specializing in AI-driven solutions and modern web technologies. Expert in integrating AI/ML capabilities, building intelligent applications, and developing custom AI tools to solve complex business challenges. Focused on creating scalable, AI-enhanced experiences using React, TypeScript, and cloud architecture.`,
     author: `@mattlundberg`,
     siteUrl: `https://themattlundberg.com`,
   },
