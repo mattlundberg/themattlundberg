@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import { routes } from "../config/routes"
 
 interface FooterLink {
   name: string
@@ -62,15 +63,18 @@ function Footer(): JSX.Element {
             <div>
               <h3 className="text-lg font-semibold mb-4 text-gray-200">Navigation</h3>
               <nav className="space-y-2">
-                {navigationLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.url}
-                    className="block text-gray-400 hover:text-gray-100 transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+                {routes
+                  .filter(route => route.showInFooter)
+                  .map(route => (
+                    <Link
+                      key={route.path}
+                      to={route.path}
+                      className="block text-gray-400 hover:text-gray-100 transition-colors"
+                      activeClassName="text-gray-100"
+                    >
+                      {route.label}
+                    </Link>
+                  ))}
               </nav>
             </div>
 

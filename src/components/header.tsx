@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { useState, useEffect } from "react"
+import { routes } from "../config/routes"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -37,9 +38,18 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="hover:text-[var(--accent)]">Home</Link>
-            <Link to="/tools" className="hover:text-[var(--accent)]">Tools</Link>
-            <Link to="/contact" className="hover:text-[var(--accent)]">Contact</Link>
+            {routes
+              .filter(route => route.showInNav)
+              .map(route => (
+                <Link
+                  key={route.path}
+                  to={route.path}
+                  className="hover:text-[var(--accent)]"
+                  activeClassName="text-[var(--accent)]"
+                >
+                  {route.label}
+                </Link>
+              ))}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full hover:bg-[var(--secondary)] transition-colors"
@@ -109,9 +119,18 @@ export function Header() {
         {isMenuOpen && (
           <div className="md:hidden mt-4 py-4 bg-[var(--primary)] border border-[var(--border-color)] rounded-lg">
             <div className="flex flex-col space-y-4 px-4">
-              <Link to="/" className="hover:text-[var(--accent)]">Home</Link>
-              <Link to="/tools" className="hover:text-[var(--accent)]">Tools</Link>
-              <Link to="/contact" className="hover:text-[var(--accent)]">Contact</Link>
+              {routes
+                .filter(route => route.showInNav)
+                .map(route => (
+                  <Link
+                    key={route.path}
+                    to={route.path}
+                    className="hover:text-[var(--accent)]"
+                    activeClassName="text-[var(--accent)]"
+                  >
+                    {route.label}
+                  </Link>
+                ))}
             </div>
           </div>
         )}
