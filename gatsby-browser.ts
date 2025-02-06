@@ -15,11 +15,12 @@ export const onRouteUpdate = ({ location }) => {
   // Get all valid routes from our routes config
   const validPaths = [
     '/',
-    '/tools',
-    '/audit',
-    '/contact',
-    '/portfolio',
+    '/tools/',
+    '/audit/',
+    '/contact/',
+    '/portfolio/',
     // Add any other valid paths here
+
   ]
 
   // Check if current path is valid
