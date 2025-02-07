@@ -67,28 +67,43 @@ export function AIAuditForm(): JSX.Element {
       nextStep()
       return
     }
-    
-    // Create FormData object for Netlify
-    const formDataObj = new FormData()
-    formDataObj.append('form-name', 'ai-audit')
-    
-    // Append all form fields
-    Object.entries(formData).forEach(([key, value]) => {
-      if (Array.isArray(value)) {
-        formDataObj.append(key, value.join(', '))
-      } else {
-        formDataObj.append(key, value.toString())
-      }
-    })
 
     try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataObj as any).toString()
+      // Convert form data to URL-encoded format that Netlify expects
+      const formEntries = Object.entries(formData).map(([key, value]) => {
+        // Handle arrays (checkboxes)
+        if (Array.isArray(value)) {
+          return `${encodeURIComponent(key)}=${encodeURIComponent(value.join(', '))}`
+        }
+        // Handle boolean values
+        if (typeof value === 'boolean') {
+          return `${encodeURIComponent(key)}=${value ? 'yes' : 'no'}`
+        }
+        // Handle regular string values
+        return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
       })
 
-      // Reset form and show modal instead of alert
+      // Add the form-name field that Netlify requires
+      formEntries.unshift('form-name=ai-audit')
+
+      const formBody = formEntries.join('&')
+
+      // Log the form data for debugging
+      console.log('Submitting form data:', formBody)
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formBody
+      })
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed: ${response.status} ${response.statusText}`)
+      }
+
+      // Reset form after successful submission
       setFormData({
         fullName: "",
         email: "",
@@ -768,7 +783,13 @@ export function AIAuditForm(): JSX.Element {
 
   return (
     <>
-      <form name="ai-audit" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-8">
+      <form 
+        name="ai-audit" 
+        method="POST" 
+        data-netlify="true"
+        onSubmit={handleSubmit} 
+        className="space-y-8"
+      >
         <input type="hidden" name="form-name" value="ai-audit" />
 
         {steps[currentStep]}
