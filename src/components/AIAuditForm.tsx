@@ -69,41 +69,32 @@ export function AIAuditForm(): JSX.Element {
     }
 
     try {
-      // Convert form data to URL-encoded format that Netlify expects
-      const formEntries = Object.entries(formData).map(([key, value]) => {
-        // Handle arrays (checkboxes)
+      // Create FormData from the event target
+      const myForm = e.target as HTMLFormElement
+      const formData = new FormData(myForm)
+
+      // Add all form fields to the FormData
+      Object.entries(formData).forEach(([key, value]) => {
         if (Array.isArray(value)) {
-          return `${encodeURIComponent(key)}=${encodeURIComponent(value.join(', '))}`
+          formData.append(key, value.join(', '))
+        } else if (typeof value === 'boolean') {
+          formData.append(key, value ? 'yes' : 'no')
+        } else {
+          formData.append(key, value.toString())
         }
-        // Handle boolean values
-        if (typeof value === 'boolean') {
-          return `${encodeURIComponent(key)}=${value ? 'yes' : 'no'}`
-        }
-        // Handle regular string values
-        return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
       })
-
-      // Add the form-name field that Netlify requires
-      formEntries.unshift('form-name=ai-audit')
-
-      const formBody = formEntries.join('&')
-
-      // Log the form data for debugging
-      console.log('Submitting form data:', formBody)
 
       const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formBody
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString()
       })
 
       if (!response.ok) {
         throw new Error(`Form submission failed: ${response.status} ${response.statusText}`)
       }
 
-      // Reset form after successful submission
+      // Reset form and show success modal
       setFormData({
         fullName: "",
         email: "",
@@ -783,6 +774,44 @@ export function AIAuditForm(): JSX.Element {
 
   return (
     <>
+      {/* Hidden form for Netlify form detection */}
+      <form 
+        name="ai-audit" 
+        data-netlify="true" 
+        hidden
+      >
+        <input type="hidden" name="form-name" value="ai-audit" />
+        <input type="text" name="fullName" />
+        <input type="email" name="email" />
+        <input type="text" name="companyName" />
+        <input type="checkbox" name="consent" />
+        <input type="text" name="industry" />
+        <input type="text" name="products" />
+        <input type="text" name="employees" />
+        <input type="text" name="aiUsage" />
+        <input type="text" name="existingAITools" />
+        <input type="text" name="painPoints" />
+        <input type="text" name="inefficientProcesses" />
+        <input type="text" name="engagementMethods" />
+        <input type="text" name="chatbotUsage" />
+        <input type="text" name="interestInChatbots" />
+        <input type="text" name="leadGenerationMethods" />
+        <input type="text" name="salesChallenges" />
+        <input type="text" name="interestInAIDrivenSolutions" />
+        <input type="text" name="automationTools" />
+        <input type="text" name="timeConsumingTasks" />
+        <input type="text" name="interestInAIAutomation" />
+        <input type="text" name="dataMethods" />
+        <input type="text" name="interestInDataInsights" />
+        <input type="text" name="aiFamiliarity" />
+        <input type="text" name="previousAIConsideration" />
+        <input type="text" name="aiConcerns" />
+        <input type="text" name="interestInAIDrivenWebsite" />
+        <input type="text" name="preferredAIFocus" />
+        <input type="text" name="requestForAIConsultation" />
+      </form>
+
+      {/* Actual form */}
       <form 
         name="ai-audit" 
         method="POST" 
@@ -791,9 +820,8 @@ export function AIAuditForm(): JSX.Element {
         className="space-y-8"
       >
         <input type="hidden" name="form-name" value="ai-audit" />
-
         {steps[currentStep]}
-
+        
         <div className="flex justify-between">
           <button type="button" onClick={prevStep} disabled={currentStep === 0} className="py-2 px-4 bg-gray-600 text-white rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50">
             Previous
