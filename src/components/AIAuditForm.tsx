@@ -773,12 +773,13 @@ export function AIAuditForm(): JSX.Element {
   ]
 
   return (
-    <>
-      {/* Hidden form for Netlify form detection */}
+    <div>
+      {/* Actual form */}
       <form 
         name="ai-audit" 
-        data-netlify="true" 
-        hidden
+        method="POST" 
+        onSubmit={handleSubmit} 
+        className="space-y-8"
       >
         <input type="hidden" name="form-name" value="ai-audit" />
         <input type="hidden" name="fullName" value={formData.fullName} />
@@ -809,16 +810,6 @@ export function AIAuditForm(): JSX.Element {
         <input type="hidden" name="interestInAIDrivenWebsite" value={formData.interestInAIDrivenWebsite} />
         <input type="hidden" name="preferredAIFocus" value={formData.preferredAIFocus} />
         <input type="hidden" name="requestForAIConsultation" value={formData.requestForAIConsultation} />
-      </form>
-
-      {/* Actual form */}
-      <form 
-        name="ai-audit" 
-        method="POST" 
-        onSubmit={handleSubmit} 
-        className="space-y-8"
-      >
-        <input type="hidden" name="form-name" value="ai-audit" />
         {steps[currentStep]}
         
         <div className="flex justify-between">
@@ -847,7 +838,7 @@ export function AIAuditForm(): JSX.Element {
         actionText="Explore AI Tools"
         actionLink="/tools"
       />
-    </>
+    </div>
   )
 }
 
