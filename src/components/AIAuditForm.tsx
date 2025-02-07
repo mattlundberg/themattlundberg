@@ -781,41 +781,40 @@ export function AIAuditForm(): JSX.Element {
         hidden
       >
         <input type="hidden" name="form-name" value="ai-audit" />
-        <input type="text" name="fullName" />
-        <input type="email" name="email" />
-        <input type="text" name="companyName" />
-        <input type="checkbox" name="consent" />
-        <input type="text" name="industry" />
-        <input type="text" name="products" />
-        <input type="text" name="employees" />
-        <input type="text" name="aiUsage" />
-        <input type="text" name="existingAITools" />
-        <input type="text" name="painPoints" />
-        <input type="text" name="inefficientProcesses" />
-        <input type="text" name="engagementMethods" />
-        <input type="text" name="chatbotUsage" />
-        <input type="text" name="interestInChatbots" />
-        <input type="text" name="leadGenerationMethods" />
-        <input type="text" name="salesChallenges" />
-        <input type="text" name="interestInAIDrivenSolutions" />
-        <input type="text" name="automationTools" />
-        <input type="text" name="timeConsumingTasks" />
-        <input type="text" name="interestInAIAutomation" />
-        <input type="text" name="dataMethods" />
-        <input type="text" name="interestInDataInsights" />
-        <input type="text" name="aiFamiliarity" />
-        <input type="text" name="previousAIConsideration" />
-        <input type="text" name="aiConcerns" />
-        <input type="text" name="interestInAIDrivenWebsite" />
-        <input type="text" name="preferredAIFocus" />
-        <input type="text" name="requestForAIConsultation" />
+        <input type="hidden" name="fullName" value={formData.fullName} />
+        <input type="hidden" name="email" value={formData.email} />
+        <input type="hidden" name="companyName" value={formData.companyName} />
+        <input type="hidden" name="consent" value={formData.consent.toString()} />
+        <input type="hidden" name="industry" value={formData.industry} />
+        <input type="hidden" name="products" value={formData.products} />
+        <input type="hidden" name="employees" value={formData.employees} />
+        <input type="hidden" name="aiUsage" value={formData.aiUsage} />
+        <input type="hidden" name="existingAITools" value={formData.existingAITools} />
+        <input type="hidden" name="painPoints" value={formData.painPoints.join(', ')} />
+        <input type="hidden" name="inefficientProcesses" value={formData.inefficientProcesses} />
+        <input type="hidden" name="engagementMethods" value={formData.engagementMethods.join(', ')} />
+        <input type="hidden" name="chatbotUsage" value={formData.chatbotUsage} />
+        <input type="hidden" name="interestInChatbots" value={formData.interestInChatbots} />
+        <input type="hidden" name="leadGenerationMethods" value={formData.leadGenerationMethods.join(', ')} />
+        <input type="hidden" name="salesChallenges" value={formData.salesChallenges.join(', ')} />
+        <input type="hidden" name="interestInAIDrivenSolutions" value={formData.interestInAIDrivenSolutions} />
+        <input type="hidden" name="automationTools" value={formData.automationTools} />
+        <input type="hidden" name="timeConsumingTasks" value={formData.timeConsumingTasks.join(', ')} />
+        <input type="hidden" name="interestInAIAutomation" value={formData.interestInAIAutomation} />
+        <input type="hidden" name="dataMethods" value={formData.dataMethods.join(', ')} />
+        <input type="hidden" name="interestInDataInsights" value={formData.interestInDataInsights} />
+        <input type="hidden" name="aiFamiliarity" value={formData.aiFamiliarity} />
+        <input type="hidden" name="previousAIConsideration" value={formData.previousAIConsideration} />
+        <input type="hidden" name="aiConcerns" value={formData.aiConcerns.join(', ')} />
+        <input type="hidden" name="interestInAIDrivenWebsite" value={formData.interestInAIDrivenWebsite} />
+        <input type="hidden" name="preferredAIFocus" value={formData.preferredAIFocus} />
+        <input type="hidden" name="requestForAIConsultation" value={formData.requestForAIConsultation} />
       </form>
 
       {/* Actual form */}
       <form 
         name="ai-audit" 
         method="POST" 
-        data-netlify="true"
         onSubmit={handleSubmit} 
         className="space-y-8"
       >
