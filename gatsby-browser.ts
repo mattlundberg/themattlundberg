@@ -19,6 +19,7 @@ export const onRouteUpdate = ({ location }) => {
     '/audit/',
     '/contact/',
     '/portfolio/',
+    '/schedule/',
     // Add any other valid paths here
 
   ]

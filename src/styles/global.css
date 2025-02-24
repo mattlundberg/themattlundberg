@@ -221,3 +221,91 @@ svg {
     filter: drop-shadow(0 0 5px var(--shadow-color));
   }
 }
+
+/* Calendly Integration Styles */
+.calendly-inline-widget {
+  @apply bg-transparent;
+}
+
+/* Main calendar styling */
+.calendly-inline-widget iframe {
+  @apply !bg-[var(--glass-color)];
+  filter: hue-rotate(180deg) !important;
+}
+
+/* Calendar background and text colors */
+:root {
+  --calendly-bg-color: var(--glass-color);
+  --calendly-text-color: var(--text-color);
+  --calendly-accent-color: var(--accent);
+}
+
+/* Custom loading state */
+.calendly-spinner {
+  @apply !bg-[var(--glass-color)];
+}
+
+/* Calendar specific overrides */
+.calendly-inline-widget {
+  .calendar-loading {
+    @apply text-[var(--text-color)];
+  }
+
+  /* Calendar container */
+  .calendly-popup {
+    @apply !bg-[var(--glass-color)] !text-[var(--text-color)];
+  }
+
+  /* Selected date styling */
+  .calendly-selected {
+    @apply !bg-[var(--accent)] !text-[var(--text-color)];
+  }
+
+  /* Available time slots */
+  .calendly-available-spot {
+    @apply !bg-[var(--glass-color)] !text-[var(--text-color)] 
+           !border !border-[var(--border-color)] !rounded-lg;
+    
+    &:hover {
+      @apply !border-[var(--accent)] !bg-[var(--accent)] !bg-opacity-10;
+    }
+  }
+
+  /* Buttons */
+  .calendly-button {
+    @apply !bg-[var(--accent)] !text-[var(--text-color)] !rounded-lg 
+           !border !border-[var(--border-color)];
+    
+    &:hover {
+      @apply !bg-opacity-90;
+    }
+  }
+}
+
+/* Additional Calendly overrides */
+.calendly-inline-widget iframe {
+  .calendar {
+    @apply !bg-[var(--glass-color)];
+  }
+
+  .days {
+    @apply !text-[var(--text-color)];
+  }
+
+  .date-picker {
+    @apply !bg-[var(--glass-color)] !text-[var(--text-color)];
+  }
+
+  .available {
+    @apply !text-[var(--accent)];
+  }
+}
+
+/* Ensure proper contrast in dark mode */
+[data-theme="dark"] .calendly-inline-widget {
+  color-scheme: dark;
+  
+  iframe {
+    filter: invert(0.9) hue-rotate(180deg);
+  }
+}

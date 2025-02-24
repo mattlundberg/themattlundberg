@@ -15,6 +15,18 @@ exports.onRenderBody = ({ setHtmlAttributes, setPostBodyComponents }) => {
 
   // Add Chatbase script with custom styling
   setPostBodyComponents([
+    // Load Calendly CSS first
+    React.createElement("link", {
+      key: "calendly-styles",
+      href: "https://assets.calendly.com/assets/external/widget.css",
+      rel: "stylesheet",
+    }),
+    // Then load Calendly JS
+    React.createElement("script", {
+      key: "calendly-widget",
+      src: "https://assets.calendly.com/assets/external/widget.js",
+      async: true,
+    }),
     React.createElement("script", {
       key: "chatbase-widget",
       dangerouslySetInnerHTML: {

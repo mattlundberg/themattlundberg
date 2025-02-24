@@ -781,6 +781,7 @@ export function AIAuditForm(): JSX.Element {
         onSubmit={handleSubmit} 
         className="space-y-8"
       >
+        {/* Hidden fields are required for Netlify form submissions - each form field must have a corresponding hidden input with the same name attribute in order for the data to be properly captured and stored in Netlify's form submissions */}
         <input type="hidden" name="form-name" value="ai-audit" />
         <input type="hidden" name="fullName" value={formData.fullName} />
         <input type="hidden" name="email" value={formData.email} />

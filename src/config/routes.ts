@@ -31,4 +31,10 @@ export const routes: Route[] = [
     showInNav: true,
     showInFooter: true,
   },
+  {
+    path: '/schedule',
+    label: 'Schedule',
+    showInNav: true,
+    showInFooter: true,
+  },
 ] 
